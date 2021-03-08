@@ -1,0 +1,98 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.head{
+    height: 50px;
+    border: 1px black solid;
+}
+
+.wrap {
+    height: 100vh;
+    width: 1400px;
+    margin: 0 auto;
+    border: 1px black solid;
+    border-top: none;
+}
+
+.kbd-modal{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background-color: rgb(170, 167, 167,0.6);   
+    opacity: 0.9;
+
+}
+.kbd-contain{
+    font-size: 16px;
+    margin: 0 auto;
+    width: 700px;
+    height: 220px;
+    border-radius: 5px;
+    padding: 25px 2px 2px;
+}
+
+.row_one,.row_two,.row_three,.row_four,.row_five{
+    display: flex;
+}
+
+.close{
+    position: absolute;
+    right:9px;
+    top:0;
+    display: inline-block;
+    color:rgb(41, 40, 40);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.key {
+    color: white;
+    text-align: center;
+    width: 30px;
+    border: 1px black solid;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 1px;
+    background: linear-gradient(0deg,rgb(29, 28, 28),rgb(65, 64, 64) );
+    font-family: Arial, Helvetica, sans-serif;
+    cursor:pointer;
+}
+
+.key:hover{
+    border:1px white solid;
+}
+
+.tab {
+    width:41px;
+}
+
+.caps_key{
+    padding: 2px;
+    width:70px;
+ }
+
+.enter_key{
+    width:120px;
+}
+
+.shift_key{
+    width: 65px;
+}
+
+.ctrl_key{
+    width: 79px;
+}
+
+.alt_key{
+    width: 52px;
+}
+
+.space_key{
+    width: 380px;
+}
+
