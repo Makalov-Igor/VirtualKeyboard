@@ -4,6 +4,8 @@ body {
     height: 100%;
 }
 
+
+
 .head{
     height: 50px;
     border: 1px black solid;
@@ -15,7 +17,42 @@ body {
     margin: 0 auto;
     border: 1px black solid;
     border-top: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+form{
+    margin-top:120px;
+}
+
+form div {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+form label{
+    padding-right: 5px;
+    font-size: 21px;
+}
+
+input,textarea {
+    padding: 5px 5px 5px 15px;
+    font-size: 21px;
+    width: 600px;
+    height: 30px;
+    flex-grow: 1;
+    outline: none;
+    border:1px black solid;
+    border-radius: 10px;
+}
+
+.i-4{
+    height: 250px;
+    resize: none;
+}
+
+
 
 .kbd-modal{
     position: fixed;
@@ -25,7 +62,6 @@ body {
     height: 250px;
     background-color: rgb(170, 167, 167,0.6);   
     opacity: 0.9;
-
 }
 .kbd-contain{
     font-size: 16px;
@@ -67,6 +103,8 @@ body {
     border:1px white solid;
 }
 
+
+
 .tab {
     width:41px;
 }
@@ -94,5 +132,23 @@ body {
 
 .space_key{
     width: 380px;
+}
+
+.s-1{
+    height: 40px;
+    color: white;
+    flex-grow: 0;
+    border-radius: 10px;
+    background-color: rgba(137, 43, 226, 0.774);
+    width: 145px;
+    margin-left: 520px;
+}
+
+.img-keyboard{
+    display: inline;
+}
+
+.key:active{
+    background-color: yellow;
 }
 
