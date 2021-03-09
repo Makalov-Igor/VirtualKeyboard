@@ -103,7 +103,9 @@ input,textarea {
     border:1px white solid;
 }
 
-
+.row_four{
+    margin-left:50px;
+}
 
 .tab {
     width:41px;
@@ -131,7 +133,9 @@ input,textarea {
 }
 
 .space_key{
-    width: 380px;
+    width: 498px;
+    margin-left: 95px;
+    height: 15px;
 }
 
 .s-1{
