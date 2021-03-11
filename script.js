@@ -1,14 +1,15 @@
 
 const engLarge = [
     ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '/', '&larr;'],
-    ['@', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']'],
-    ['Caps Lock', 'A', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", 'Enter'],
-    ['Z', 'X', 'C', 'V', 'B', 'N', 'M', '&lt;', '&gt;', '?', '/'],
+    ['@', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
+    ['Caps Lock', 'a', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter'],
+    ['z', 'x', 'c', 'v', 'b', 'n', 'm', '&lt;', '&gt;', '?', '/'],
     ['Space']
 ]
 
 const rows = ['.row_one', '.row_two', '.row_three', '.row_four', '.row_five'];
 
+// генерация клавиш
 
 function init(size) {
 
@@ -21,35 +22,39 @@ function init(size) {
 
             let elem = document.createElement('div');
 
+            elem.classList.add('key');
+
             if (item == '&larr;') elem.classList.add('back_space');
             else if (item == 'Caps Lock') elem.classList.add('caps_key');
             else if (item == 'Enter') elem.classList.add('enter_key');
             else if (item == 'Space') elem.classList.add('space_key');
             else if (item == '&larr;') elem.classList.add('back_space');
 
-            elem.classList.add('key');
-            if (size == 'lower') {
-                elem.innerHTML = item.toLowerCase();
-            }
-            else elem.innerHTML = item;
+
+            elem.innerHTML = item;
+
             row.append(elem);
-        })
+        });
     }
 
 
 
 }
-init();
+init('large');
 
+//получаем элементы
 
 const keys = document.querySelectorAll('.key');
 const enter = document.querySelector('.enter_key');
 const backSpace = document.querySelector('.back_space');
 const caps = document.querySelector('.caps_key');
 const space = document.querySelector('.space_key')
+const closeBtn = document.querySelector('.close');
 const allInputs = document.querySelectorAll('.inp');
+const keyboardModal = document.querySelector('.kbd-modal')
+
 let currentInput = '';
-let capsState = true;
+
 
 
 //активируем необходимый input
@@ -58,6 +63,7 @@ for (item in allInputs) {
     allInputs[item].onclick = function () {
         currentInput = this;
     }
+
 }
 
 //выводим символ кликом
@@ -65,10 +71,10 @@ for (item in allInputs) {
 for (item in keys) {
     keys[item].onclick = function () {
         if (capsState) {
-            currentInput.value += this.textContent;
+            currentInput.value += this.textContent.toUpperCase();
         }
         else {
-            currentInput.value += this.textContent.toLowerCase();
+            currentInput.value += this.textContent;
         }
     }
 }
@@ -81,16 +87,16 @@ enter.onclick = function () {
 
 //caps lock
 
+let capsState = false;
+
 caps.onclick = function () {
     if (capsState) {
-        init('lower');
         capsState = false;
+        document.querySelector('.caps_key').classList.remove('active');
     }
-    else {
-        init();
-        capsState = true;
-    }
+    else capsState = true, document.querySelector('.caps_key').classList.add('active');
 }
+
 
 //space
 
@@ -104,3 +110,12 @@ backSpace.onclick = () => {
     currentInput.value = currentInput.value.slice(0, currentInput.value.length - 1)
 }
 
+//close
+
+closeBtn.onclick = () => {
+    document.querySelector('.kbd-modal').classList.add('kbd-hidden');
+};
+
+document.querySelector('.img-keyboard').onclick = function () {
+    keyboardModal.classList.remove('kbd-hidden');
+}
